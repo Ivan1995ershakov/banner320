@@ -107,19 +107,19 @@ function handleComplete(evt,comp) {
 .logo img{
 	position: absolute;
 	z-index: 100;
-	width: 120px;
-	top:-17px;
-	left: 90px;
+	width: 170px;
+	top:-9px;
+	left: 63px;
 	animation-name: logo_img;
 	animation-duration: 11s;
 	animation-iteration-count: infinite;
 	opacity: 0;
 }
 @keyframes logo_img {
-	0%{opacity: 0; top:-10px;}
-	8%{opacity: 1; top:-17px;}
-	13%{opacity: 1; top:-17px;}
-	23%{opacity: 0; top:-25px;}
+	0%{opacity: 0; top:0px;}
+	8%{opacity: 1; top:-9px;}
+	13%{opacity: 1; top:-9px;}
+	23%{opacity: 0; top:-18px;}
 	100%{opacity: 0;}
 }
 .logo p{
@@ -145,9 +145,10 @@ function handleComplete(evt,comp) {
 	100%{opacity: 0;}
 }
 .h1{
-	top:15px;
+	font-family: 'Montserrat', sans-serif;
+	top:35px;
 	left:134px;
-	font-size: 25px;
+	font-size: 17px;
 	animation-name: h1;
 	animation-duration: 11s;
 	animation-iteration-count: infinite;
@@ -155,16 +156,17 @@ function handleComplete(evt,comp) {
 }
 @keyframes h1 {
 	0%{opacity: 0;}
-	25%{opacity: 0; left:147px;}
-	35%{opacity: 1; left:134px;}
-	45%{opacity: 1; left:134px;}
-	55%{opacity: 0; left:121px;}
+	25%{opacity: 0; left:184px;}
+	35%{opacity: 1; left:174px;}
+	45%{opacity: 1; left:174px;}
+	55%{opacity: 0; left:164px;}
 	100%{opacity: 0;}
 }
 .h2{
-	top:40px;
+	font-family: 'Montserrat', sans-serif;
+	top:55px;
 	left:115px;
-	font-size: 25px;
+	font-size: 17px;
 	animation-name: h2;
 	animation-duration: 11s;
 	animation-iteration-count: infinite;
@@ -172,26 +174,28 @@ function handleComplete(evt,comp) {
 }
 @keyframes h2 {
 	0%{opacity: 0;}
-	25%{opacity: 0; left:123px;}
-	35%{opacity: 1; left:115px;}
-	45%{opacity: 1; left:115px;}
-	55%{opacity: 0; left:103px;}
+	25%{opacity: 0; left:174px;}
+	35%{opacity: 1; left:164px;}
+	45%{opacity: 1; left:164px;}
+	55%{opacity: 0; left:154px;}
 	100%{opacity: 0;}
 }
 h1{
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	position: absolute;
 	z-index: 100;
 	color:white;
-	font-size: 26px;
+	font-size: 17px;
 	text-align: right;
 }
 .h3{
+font-family: 'Montserrat', sans-serif;
 position: absolute;
 top:0px;
 left:20px;
+font-size: 23px;
 letter-spacing:3px;
-color:#044b7c;
+color:#246463;
 animation-name: h3;
 animation-duration: 11s;
 animation-iteration-count: infinite;
@@ -213,8 +217,7 @@ opacity: 0;
 <body onload="init();" style="margin:0px;">
 	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:320px; height:100px">
 		<div class="logo">
-			<img src="images/logo/logo.png" alt="">
-			<p>QAZEXPO<br>congress</p>
+			<img src="images/logo/logo1.png" alt="">
 		</div>
 		<h1 class="h1">ДАРИ ВРЕМЯ</h1><h1 class="h2"> СВОЕЙ СЕМЬЕ</h1>
 		<h1 class="h3">NUR ALEM</h1>
