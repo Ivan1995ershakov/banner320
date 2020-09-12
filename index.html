@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<meta name="description" content="adfox_template">
+<title>index</title>
+<!-- write your code here -->
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="index.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("08BA17FD75025F42892F647BA85D67D6");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+    var flashVars = {
+      reference: "%request.reference%",
+      link: "%banner.user1%",
+      target: "%banner.target%",
+      rnd: parseInt("%request.place_random%") || parseInt("%system.random%"),
+      events: [
+            "",
+            "%banner.event1%",
+            "%banner.event2%",
+            "%banner.event3%",
+            "%banner.event4%",
+            "%banner.event5%",
+            "%banner.event6%",
+            "%banner.event7%",
+            "%banner.event8%",
+            "%banner.event9%",
+            "%banner.event10%",
+            "%banner.event11%",
+            "%banner.event12%",
+            "%banner.event13%",
+            "%banner.event14%",
+            "%banner.event15%",
+            "%banner.event16%",
+            "%banner.event17%",
+            "%banner.event18%",
+            "%banner.event19%",
+            "%banner.event20%",
+            "%banner.event21%",
+            "%banner.event22%",
+            "%banner.event23%",
+            "%banner.event24%",
+            "%banner.event25%",
+            "%banner.event26%",
+            "%banner.event27%",
+            "%banner.event28%",
+            "%banner.event29%",
+            "%banner.event30%"
+      ]
+    };
+function callClick(n) {
+      var link = ( n ? flashVars.events[n] : flashVars.link );
+      window.open(flashVars.reference + "@" + link, flashVars.target);
+}
+function callEvent(n) {
+      (new Image()).src = flashVars.events[n];
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.index();
+	stage = new lib.Stage(canvas);
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<style media="screen">
+.logo img{
+	position: absolute;
+	z-index: 100;
+	width: 120px;
+	top:-17px;
+	left: 90px;
+	animation-name: logo_img;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+	opacity: 0;
+}
+@keyframes logo_img {
+	0%{opacity: 0; top:-10px;}
+	8%{opacity: 1; top:-17px;}
+	13%{opacity: 1; top:-17px;}
+	23%{opacity: 0; top:-25px;}
+	100%{opacity: 0;}
+}
+.logo p{
+	font-family: 'Kumbh Sans', sans-serif;
+	font-size: 14px;
+	position: absolute;
+	z-index: 100;
+	text-align: center;
+	color: white;
+	font-weight: 100;
+	top:47px;
+	left:117px;
+	animation-name: logo_p;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+	opacity: 0;
+}
+@keyframes logo_p {
+	0%{opacity: 0; top:40px;}
+	10%{opacity: 1; top:47px;}
+	15%{opacity: 1; top:47px;}
+	25%{opacity: 0; top:54px;}
+	100%{opacity: 0;}
+}
+.h1{
+	top:15px;
+	left:134px;
+	font-size: 25px;
+	animation-name: h1;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+	opacity:0;
+}
+@keyframes h1 {
+	0%{opacity: 0;}
+	17%{opacity: 0; left:147px;}
+	27%{opacity: 1; left:134px;}
+	32%{opacity: 1; left:134px;}
+	38%{opacity: 0; left:121px;}
+	100%{opacity: 0;}
+}
+.h2{
+	top:40px;
+	left:115px;
+	font-size: 25px;
+	animation-name: h2;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+	opacity: 0;
+}
+@keyframes h2 {
+	0%{opacity: 0;}
+	19%{opacity: 0; left:123px;}
+	29%{opacity: 1; left:115px;}
+	34%{opacity: 1; left:115px;}
+	40%{opacity: 0; left:103px;}
+	100%{opacity: 0;}
+}
+h1{
+	font-family: 'Poppins', sans-serif;
+	position: absolute;
+	z-index: 100;
+	color:white;
+	font-size: 26px;
+	text-align: right;
+}
+.h3{
+position: absolute;
+top:0px;
+left:20px;
+letter-spacing:3px;
+color:#044b7c;
+animation-name: h3;
+animation-duration: 11s;
+animation-iteration-count: infinite;
+opacity: 0;
+}
+
+@keyframes h3 {
+ 0%{opacity: 0;}
+ 70%{opacity: 0; left:10px;}
+ 80%{opacity: 1; left:20px;}
+ 85%{opacity: 1; left:20px;}
+ 95%{opacity: 0; left:30px;}
+ 100%{opacity: 0; left:30px;}
+}
+
+</style>
+<!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:320px; height:100px">
+		<div class="logo">
+			<img src="images/logo/logo.png" alt="">
+			<p>QAZEXPO<br>congress</p>
+		</div>
+		<h1 class="h1">ДАРИ ВРЕМЯ</h1><h1 class="h2"> СВОЕЙ СЕМЬЕ</h1>
+		<h1 class="h3">NUR ARLEM</h1>
+		<canvas id="canvas" width="320" height="100" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:320px; height:100px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+  <script type="text/javascript">
+      var elem = document.getElementsByTagName("canvas")[0];
+      elem.style.cursor = "pointer";
+      elem.addEventListener("click", function(){
+        callClick();
+      }, false);
+  </script>
+</body>
+</html>
